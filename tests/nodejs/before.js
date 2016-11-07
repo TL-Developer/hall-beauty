@@ -1,49 +1,59 @@
 'use strict';
 
-global.CUSTOMER = {
-  givenName: 'Jane',
-  familyName: 'Doe',
-  email: 'jane@doe.com'
-};
-
-global.POSTAL_CODE = {
-  postalCode: 1310000,
-  streetAddress: 'AV PAULISTA'
-};
-
-global.REFERENCE_POINT = {
-  postalCode: 1310000,
-  number: 1000,
-  referencePoint: 'Condomínio Story'
-};
-
-global.PRODUCT = {
-  name: 'Strudel de Maçã',
-  price: 70.0,
-  gift: false
-};
-
 global.API = '/api/v1';
 
-global.CLIENTS = [
-  {
-    name: 'Lion'
-  }
+global.KEYS_USERS = [
+  'nome',
+  'estabelecimento',
+  'endereco',
+  'horarios',
+  'servicos',
+  'produtos',
+  'tipo'
 ];
 
-global.GIFT = {
-  name: 'Mini Strudel de Maçã',
-  price: 4.0,
-  gift: true
-};
+global.KEYS_USERS_ID_HOURS = [
+  'dia',
+  'horario',
+  'agendado'
+];
 
-global.ORDER = {
-  _customer: '57f37e574295dc4dc9f84fed',
-  customer: {
-    _id: '57f37e574295dc4dc9f84fed',
-    givenName: 'Jane'
-  },
-  createdAt: new Date(),
-  items: [PRODUCT],
-  gifts: [GIFT]
-};
+global.USERS = [
+  {
+    nome: 'Lion man',
+    estabelecimento: 'Lion Cabeleleiros',
+    endereco: {
+      logradouro: 'Rua borboleta amarela',
+      numero: '57',
+      cep: '08081-570',
+      bairro: 'São Martinho',
+      localidade: 'São Paulo',
+      uf: "SP"
+    },
+    horarios: [
+      {
+        dia: 'segunda-feira',
+        horario: '9:00',
+        agendado: {
+          nome: 'tiago',
+          telefone: ['11-2222-2222','11-1111-1111'],
+          celular: ['11-92222-2222','11-91111-1111']
+        }
+      }
+    ],
+    servicos: [
+      {
+        nome: 'Relaxamento',
+        valor: 'R$ 5,00',
+        tempo: '1h'
+      }
+    ],
+    produtos: [
+      {
+        nome: 'Gel fixador',
+        valor: 'R$ 5,00'
+      }
+    ],
+    tipo: 'usuario'
+  }
+];
