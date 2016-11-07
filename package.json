@@ -4,7 +4,8 @@
   "description": "System of managment hall beauty",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --watch ./node_modules/mocha/bin/_mocha tests/nodejs/*"
+    "test": "mocha --watch ./node_modules/mocha/bin/_mocha tests/nodejs/*",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
