@@ -1,4 +1,4 @@
-angular.module('hall-beauty', ['ui.router']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
+angular.module('hall-beauty', ['ui.router','ui.materialize']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
   //$locationProvider.html5Mode(true);
 
