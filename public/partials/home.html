@@ -1,82 +1,25 @@
-<div class="row">
+<div class="container body">
+  <div class="main_container">
 
-    <!-- HEADER -->
-    <div class="col s12">
-      <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Lion Man</a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="sass.html">sair</a></li>
-            </ul>
-          </div>
-        </nav>
+    <div class="row">
+      <div ng-include="'partials/top-navigation.html'"></div>
+    </div>
+
+    <div class="row">
+      <!-- RIGHT PANEL -->
+      <div class="col-md-12">
+        <div ng-include="'partials/calendar.html'"></div>
       </div>
+      <!-- RIGHT PANEL -->
     </div>
-    <!-- FIM:HEADER -->
-
-    <!-- NAV LEFT-->
-    <div class="col s3">
-      <nav>
-        nav
-      </nav>
-    </div>
-    <!-- FIM:NAV LEFT -->
-
-    <!-- CONTEUDO -->
-    <div class="col s9">
-      <main>
-
-        <div class="col s12">
-
-          <table class="highlight centered responsive-table">
-            <thead>
-              <tr>
-                  <th>Horários</th>
-                  <th>Agendados</th>
-                  <th>Encaixes</th>
-                  <th>Opções</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr >
-                <td>
-                  9:00hs
-                </td>
-
-                <td>
-                  <div class="card-panel">
-                    Tiago Lima(DDD)
-                  </div>
-                </td>
-                <td>
-                  <div class="card-panel">
-                    Marcos Roxa(MARCÃO)</td>
-                  </div>
-                <td>
-                  <a class="btn-large waves-effect waves-light red">remover</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-        </div>
-      </main>
-    </div>
-    <!-- FIM:CONTEUDO -->
 
     <!-- FOOTER -->
-    <div class="col s12">
-      <footer class="page-footer">
-        <div class="footer-copyright">
-          <div class="container">
-          © 2014 Copyright <a class="grey-text text-lighten-4 right" href="#!">TL Code</a>
-          </div>
-        </div>
-      </footer>
+    <div class="row">
+      <div ng-include="'partials/footer.html'"></div>
     </div>
-    <!-- FIM:FOOTER -->
+    <!-- FOOTER -->
 
+
+  </div>
 </div>
+

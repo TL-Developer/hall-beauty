@@ -1,0 +1,33 @@
+{
+  "name": "hall-beauty",
+  "description": "System of managment hall beauty",
+  "main": "index.js",
+  "authors": [
+    "Tiago Lima"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "hall",
+    "beauty",
+    "beauty",
+    "hall",
+    "managment",
+    "beauty",
+    "managment",
+    "hall"
+  ],
+  "homepage": "https://github.com/TL-Developer/hall-beauty",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.3.2",
+    "angular": "^1.5.8",
+    "gentelella": "^1.3.0"
+  }
+}
