@@ -8,7 +8,7 @@ var express        = require('express')
 module.exports = function(){
   var app = express();
 
-  app.set('port', process.env.PORT || 4000);
+  app.set('port', process.env.PORT || 3000);
 
   app.set('API', '/api/v1');
 

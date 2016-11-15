@@ -1,5 +1,10 @@
 'use strict';
 
+var date = new Date(),
+    d = date.getDate(),
+    m = date.getMonth(),
+    y = date.getFullYear();
+
 var Users = [
   {
     nome: 'Lion man',
@@ -12,15 +17,114 @@ var Users = [
       localidade: 'São Paulo',
       uf: "SP"
     },
-    horarios: [
+    eventos: [
       {
-        dia: 'segunda-feira',
-        horario: '9:00',
-        agendado: {
-          nome: 'tiago',
-          telefone: ['11-2222-2222','11-1111-1111'],
-          celular: ['11-92222-2222','11-91111-1111']
-        }
+        segunda: [
+          {
+            nome: 'Tiago Juvenal de Lima',
+            horario: '09:00'
+          },
+          {
+            nome: 'Ricardo Lopes',
+            horario: '09:30'
+          },
+          {
+            nome: 'Felipe',
+            horario: '10:00'
+          },
+          {
+            nome: 'Nicolas Santos',
+            horario: '08:00'
+          },
+          {
+            nome: 'Henrique Kawai',
+            horario: '08:30'
+          }
+        ],
+        terca: [
+          {
+            nome: 'Tiago Juvenal de Lima',
+            horario: '09:00'
+          },
+          {
+            nome: 'Ricardo Lopes',
+            horario: '09:30'
+          },
+          {
+            nome: 'Felipe',
+            horario: '10:00'
+          }
+        ],
+        quarta: [
+          {
+            nome: 'Tiago Lima',
+            horario: '09:00'
+          },
+          {
+            nome: 'Ricardo Lopes',
+            horario: '09:30'
+          },
+          {
+            nome: 'Felipe',
+            horario: '10:00'
+          }
+        ],
+        quinta: [
+          {
+            nome: 'Tiago Lima',
+            horario: '09:00'
+          },
+          {
+            nome: 'Ricardo Lopes',
+            horario: '09:30'
+          },
+          {
+            nome: 'Felipe',
+            horario: '10:00'
+          }
+        ],
+        sexta: [
+          {
+            nome: 'Tiago Lima',
+            horario: '09:00'
+          },
+          {
+            nome: 'Ricardo Lopes',
+            horario: '09:30'
+          },
+          {
+            nome: 'Felipe',
+            horario: '10:00'
+          }
+        ],
+        sabado: [
+          {
+            nome: 'Tiago Lima',
+            horario: '09:00'
+          },
+          {
+            nome: 'Ricardo Lopes',
+            horario: '09:30'
+          },
+          {
+            nome: 'Felipe',
+            horario: '10:00'
+          }
+        ],
+        domingo: [
+          {
+            nome: 'Tiago Lima',
+            horario: '09:00'
+          },
+          {
+            nome: 'Ricardo Lopes',
+            horario: '09:30'
+          },
+          {
+            nome: 'Felipe',
+            horario: '10:00'
+          }
+        ]
       }
     ],
     servicos: [
