@@ -1,11 +1,20 @@
-angular.module('hall-beauty').controller('HomeController', ['$scope','ServiceApi', function($scope, ServiceApi){
+angular.module('hallbeauty').controller('HomeController', ['$scope','ServiceApi','$stateParams','$http', function($scope, ServiceApi, $stateParams, $http){
 
-  $scope.eventos = [];
-
-  ServiceApi.getUsers().query(function(data){
-    $scope.eventos = data[0].eventos;
-  });
+  $scope.semana = [];
+  $scope.semanaSelected = 0;
+  $scope.diaSelected;
 
 
+  $scope.selectSemana = function(semana){
+    ServiceApi.getWeeks('Laion').query(function(semanas){
+      $scope.semana = semanas[semana];
+    });
+  };
+
+  $scope.selectDia = function(dia){
+    if(dia == 'todos') {
+      $scope.diaSelected = '';
+    }
+  };
 
 }]);

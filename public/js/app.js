@@ -1,4 +1,4 @@
-angular.module('hall-beauty', ['ui.router','ngResource']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
+angular.module('hallbeauty', ['ui.router','ngResource']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
   //$locationProvider.html5Mode(true);
 
@@ -8,6 +8,20 @@ angular.module('hall-beauty', ['ui.router','ngResource']).config(function($state
         templateUrl: 'partials/home.html',
         controller: 'HomeController'
       })
+
+      .state('weeks', {
+        url: '/:user/weeks',
+        templateUrl: 'partials/weeks.html',
+        controller: 'WeeksControllers'
+      })
+
+      .state('weeksNew', {
+        url: '/:user/weeks/:week',
+        templateUrl: 'partials/weeks_new.html',
+        controller: 'WeekController'
+      })
+
+
 
       $urlRouterProvider.otherwise('/');
 

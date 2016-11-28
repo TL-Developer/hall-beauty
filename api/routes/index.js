@@ -1,166 +1,143 @@
 'use strict';
 
-var date = new Date(),
-    d = date.getDate(),
-    m = date.getMonth(),
-    y = date.getFullYear();
 
-var Users = [
+var user = [
   {
-    nome: 'Lion man',
+    nome: 'Laion',
     estabelecimento: 'Lion Cabeleleiros',
-    endereco: {
-      logradouro: 'Rua borboleta amarela',
-      numero: '57',
-      cep: '08081-570',
-      bairro: 'São Martinho',
-      localidade: 'São Paulo',
-      uf: "SP"
-    },
-    eventos: [
+    semanas: [
       {
-        segunda: [
-          {
-            nome: 'Tiago Juvenal de Lima',
-            horario: '09:00'
-          },
-          {
-            nome: 'Ricardo Lopes',
-            horario: '09:30'
-          },
-          {
-            nome: 'Felipe',
-            horario: '10:00'
-          },
-          {
-            nome: 'Nicolas Santos',
-            horario: '08:00'
-          },
-          {
-            nome: 'Henrique Kawai',
-            horario: '08:30'
-          }
-        ],
-        terca: [
-          {
-            nome: 'Tiago Juvenal de Lima',
-            horario: '09:00'
-          },
-          {
-            nome: 'Ricardo Lopes',
-            horario: '09:30'
-          },
-          {
-            nome: 'Felipe',
-            horario: '10:00'
-          }
-        ],
-        quarta: [
-          {
-            nome: 'Tiago Lima',
-            horario: '09:00'
-          },
-          {
-            nome: 'Ricardo Lopes',
-            horario: '09:30'
-          },
-          {
-            nome: 'Felipe',
-            horario: '10:00'
-          }
-        ],
-        quinta: [
-          {
-            nome: 'Tiago Lima',
-            horario: '09:00'
-          },
-          {
-            nome: 'Ricardo Lopes',
-            horario: '09:30'
-          },
-          {
-            nome: 'Felipe',
-            horario: '10:00'
-          }
-        ],
-        sexta: [
-          {
-            nome: 'Tiago Lima',
-            horario: '09:00'
-          },
-          {
-            nome: 'Ricardo Lopes',
-            horario: '09:30'
-          },
-          {
-            nome: 'Felipe',
-            horario: '10:00'
-          }
-        ],
-        sabado: [
-          {
-            nome: 'Tiago Lima',
-            horario: '09:00'
-          },
-          {
-            nome: 'Ricardo Lopes',
-            horario: '09:30'
-          },
-          {
-            nome: 'Felipe',
-            horario: '10:00'
-          }
-        ],
-        domingo: [
-          {
-            nome: 'Tiago Lima',
-            horario: '09:00'
-          },
-          {
-            nome: 'Ricardo Lopes',
-            horario: '09:30'
-          },
-          {
-            nome: 'Felipe',
-            horario: '10:00'
-          }
-        ]
+        segunda: [],
+        terca: [],
+        quarta: [],
+        quinta: [],
+        sexta: [],
+        sabado: [],
+        domingo: []
       }
-    ],
-    servicos: [
-      {
-        nome: 'Relaxamento',
-        valor: 'R$ 5,00',
-        tempo: '1h'
-      }
-    ],
-    produtos: [
-      {
-        nome: 'Gel fixador',
-        valor: 'R$ 5,00'
-      }
-    ],
-    tipo: 'usuario'
+    ]
   }
 ];
 
 
 module.exports = function(app){
-  var API = app.get('API');
+  var API = app.get('API')
+    , Users = app.models.users;
+
+  // CADASTRANDO ÚNICO USUARIO
+  (function cadastrando_user(){
+    Users.findOne({nome: 'Laion'}).exec().then(function(data){
+      console.log(data)
+      if(data == null){
+
+        // CRIANDO ÚNICO USUARIO
+        Users.create(user[0]).then(function(data){
+          console.log(data);
+        }, function(err){
+          console.log(err);
+        });
+
+      }
+    });
+  })();
+
 
   app.route(API+'/users')
     .get(function(req, res){
-      res.json(Users);
+      Users.find({}).exec().then(function(usuarios){
+        res.status(200).json(usuarios);
+      });
     });
 
   app.route(API+'/users/:id')
     .get(function(req, res){
-      res.json(Users[0]);
+
+      var _nome = req.params.id;
+
+      Users.findOne({"nome": _nome}).exec().then(function(usuario){
+        res.status(200).json(usuario);
+      });
     });
 
-  app.route(API+'/users/:id/hours')
+  app.route(API+'/users/:id/weeks')
     .get(function(req, res){
-      res.json(Users[0].horarios[0]);
+
+      var _nome = req.params.id;
+
+      Users.findOne({"nome": _nome}).exec().then(function(usuario){
+        res.status(200).json(usuario.semanas);
+      });
+
+    });
+
+  app.route(API+'/users/:user/weeks/:id')
+    .get(function(req, res){
+
+
+      var _nome = req.params.user;
+
+      Users.findById({"nome": _nome}).exec().then(function(usuario){
+        res.status(200).json(usuario.semanas);
+      });
+
+    })
+
+    .post(function(req, res){
+
+      var agendado = {
+        dia: req.body.dia,
+        nome: req.body.nome,
+        telefones: req.body.telefones,
+        servicos: req.body.servicos,
+        horario: req.body.horario
+      }
+
+      var _user = req.body.user
+        , _week = req.body.week;
+
+
+      var usuario = Users.findOne({"nome": _user});
+
+      usuario.exec().then(function(usuario){
+        usuario.semanas[_week][agendado.dia].push({
+          "nome": agendado.nome,
+          "servicos": agendado.servicos,
+          "horario": agendado.horario,
+          "telefones": agendado.telefones
+        });
+
+        usuario.save();
+      });
+
+      res.status(201);
+
+    })
+
+    .delete(function(req, res){
+      console.log(req.body);
+    });
+
+
+  app.route(API+'/users/:user/weeks/:semana/:dia/:id')
+    .delete(function(req, res){
+
+      var user = req.params.user
+        , semana = req.params.semana
+        , dia = req.params.dia
+        , _id = req.params.id;
+
+      var usuario = Users.findOne({"nome": user});
+
+      usuario.exec().then(function(usuario){
+        //console.log(usuario.semanas[semana][dia])
+        usuario.semanas[semana][dia].forEach(function(element, index){
+          if(element._id == _id){
+            usuario.semanas[semana][dia].splice(index,1);
+          }
+        });
+
+        usuario.save();
+      });
     });
 
 };

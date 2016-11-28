@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="hall-beauty">
+<html lang="en" ng-app="hallbeauty">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,48 +8,74 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hall Beauty</title>
+
+  <link rel="stylesheet" href="icons/material.css">
+  <link rel="stylesheet" href="lib/materialize/dist/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .spinner {
+  margin: 100px auto 0;
+  width: auto;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+  </style>
 </head>
-<body>
-
-  <!-- Bootstrap -->
-  <link href="lib/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="lib/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <!-- FullCalendar -->
-  <link href="lib/gentelella/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
-  <link href="lib/gentelella/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
-
-  <!-- Custom styling plus plugins -->
-  <link href="lib/gentelella/build/css/custom.min.css" rel="stylesheet">
-
-  <link href="lib/gentelella/vendors/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 
   <div ui-view=""></div>
 
+
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="lib/materialize/dist/js/materialize.min.js"></script>
 
   <script type="text/javascript" src="lib/angular/angular.min.js"></script>
   <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
 
-  <!-- jQuery -->
-  <script src="lib/gentelella/vendors/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="lib/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- FastClick -->
-  <script src="lib/gentelella/vendors/fastclick/lib/fastclick.js"></script>
-  <!-- NProgress -->
-  <script src="lib/gentelella/vendors/nprogress/nprogress.js"></script>
-  <!-- FullCalendar -->
-  <script src="lib/gentelella/vendors/moment/min/moment.min.js"></script>
-  <script src="lib/gentelella/vendors/fullcalendar/dist/fullcalendar.js"></script>
-
-  <!-- Custom Theme Scripts -->
-  <script src="lib/gentelella/build/js/custom.min.js"></script>
 
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/controllers/HomeController.js"></script>
+  <script type="text/javascript" src="js/controllers/WeeksController.js"></script>
+  <script type="text/javascript" src="js/controllers/WeekController.js"></script>
   <script type="text/javascript" src="js/services/ServiceApi.js"></script>
-
+  <script type="text/javascript" src="js/directives/Directives.js"></script>
 
 </body>
 </html>

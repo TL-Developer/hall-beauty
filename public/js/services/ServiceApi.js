@@ -1,4 +1,4 @@
-angular.module('hall-beauty').factory('ServiceApi', function($resource){
+angular.module('hallbeauty').factory('ServiceApi', function($resource){
 
   var urlPath = '/api/v1/users';
 
@@ -6,9 +6,19 @@ angular.module('hall-beauty').factory('ServiceApi', function($resource){
     return $resource(urlPath);
   };
 
+  var _getWeeks = function(user){
+    return $resource(urlPath+'/'+user+'/weeks');
+  };
+
+  var _getWeek = function(user, week){
+    return $resource(urlPath+'/'+user+'/weeks/'+week);
+  };
+
   return {
 
-    getUsers: _getUsers
+    getUsers: _getUsers,
+    getWeeks: _getWeeks,
+    getWeek: _getWeek
 
   };
 

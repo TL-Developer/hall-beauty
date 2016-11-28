@@ -1,0 +1,65 @@
+<div class="row">
+  <div ng-include="'partials/top-navigation.html'"></div>
+</div>
+
+<div class="container col s12">
+
+  <div class="row" ng-show="mensagem.texto">
+    <p class="new badge blue text-info center" style="color: #fff;padding: 20px;">{{mensagem.texto}}</p>
+  </div>
+
+  <div class="row">
+    <h4 class="text-info center" style="padding: 20px;">Agendamento para semana: {{semana}}</h4>
+  </div>
+
+  <form ng-submit="salvar(this)">
+    <div class="input-field">
+      <div class="col s9">
+        <input type="text" placeholder="Nome" class="form-control" id="title" name="title" ng-model="nome" required>
+      </div>
+    </div>
+    <div class="input-field">
+      <div class="col s9">
+        <input required type="text" placeholder="Telefones" class="form-control" id="title" name="title" ng-model="telefones">
+      </div>
+    </div>
+    <div class="input-field">
+      <div class="col s9">
+        <textarea required class="materialize-textarea" placeholder="Serviços" cols="30" rows="10" ng-model="servicos"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field cadastro-novo">
+        <div class="col s9">
+          <select ng-model="dia" required>
+            <option value="">-- SELECIONAR O DIA --</option>
+            <option value="segunda">Segunda</option>
+            <option value="terca">Terça</option>
+            <option value="quarta">Quarta</option>
+            <option value="quinta">Quinta</option>
+            <option value="sexta">Sexta</option>
+            <option value="sabado">Sábado</option>
+            <option value="domingo">Domingo</option>
+          </select>
+        </div>
+        <div class="col s3">
+          <input required type="text" placeholder="Hora" class="form-control" ng-model="horario">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <a ui-sref="weeks({user: user})" class="btn btn-default">Voltar!</a>
+      </div>
+      <div class="col s6">
+        <button type="submit" class="btn btn-block btn-success">Salvar!</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<div class="row">
+  <div ng-include="'partials/footer.html'"></div>
+</div>

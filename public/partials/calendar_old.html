@@ -1,0 +1,189 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Calendario <small>eventos do calendario</small></h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+
+      <div class="x_content">
+
+        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+          <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+            <li role="presentation" class="active"><a ui-sref="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">SEMANA 28/11 - 04/12</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">SEMANA 05/12 - 11/12</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">SEMANA 12/12 - 18/12</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">SEMANA 19/12 - 25/12</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">SEMANA 26/12 - 01/01</a>
+            </li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+
+            <div ng-repeat="semana in semanas" role="tabpanel" class="tab-pane fade active in" id="tab_content{{$index+1}}" aria-labelledby="home-tab">
+
+              <a ui-sref="weeksNew({user: user, week: $index})" role="button" class="btn btn-success">Novo agendamento</a>
+
+              <table class="table table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <th>Segunda</th>
+                    <th>Terça</th>
+                    <th>Quarta</th>
+                    <th>Quinta</th>
+                    <th>Sexta</th>
+                    <th>Sabado</th>
+                    <th>Domingo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td name="segunda">
+                      <table>
+                        <tr style="width: 100%; display: block; text-align: center;" data-toggle="modal" data-target=".EventModalDetails" ng-repeat="event in semana.segunda | orderBy: 'horario'" class="x_panel tile-stats" href="#" role="button" class="btn btn-success">
+                          <td style="width: 100%; display: block; text-align: center;">
+                            <div><b>{{event.horario}}</b></div>
+                            <table style="width: 100%; display: block; text-align: center;">
+                              <tbody style="width: 100%; display: block; text-align: center;">
+                                <tr style="width: 100%; display: block; text-align: center;">
+                                  <td style="width: 100%; display: block; text-align: center;">
+                                    {{event.nome}} <br>
+                                    {{event.telefones}}<br>
+                                    {{event.servicos}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td name="terca">
+                      <table>
+                        <tr ng-repeat="event in semana.terca | orderBy: 'horario'" class="x_panel tile-stats" href="#" role="button" class="btn btn-success">
+                          <td style="width: 100%; display: block; text-align: center;">
+                            <div><b>{{event.horario}}</b></div>
+                            <table style="width: 100%; display: block; text-align: center;">
+                              <tbody style="width: 100%; display: block; text-align: center;">
+                                <tr style="width: 100%; display: block; text-align: center;">
+                                  <td style="width: 100%; display: block; text-align: center;">
+                                    {{event.nome}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td name="quarta">
+                      <table>
+                        <tr ng-repeat="event in semana.quarta | orderBy: 'horario'" class="x_panel tile-stats" href="#" role="button" class="btn btn-success">
+                          <td style="width: 100%; display: block; text-align: center;">
+                            <div><b>{{event.horario}}</b></div>
+                            <table style="width: 100%; display: block; text-align: center;">
+                              <tbody style="width: 100%; display: block; text-align: center;">
+                                <tr style="width: 100%; display: block; text-align: center;">
+                                  <td style="width: 100%; display: block; text-align: center;">
+                                    {{event.nome}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td name="quinta">
+                      <table>
+                        <tr ng-repeat="event in semana.quinta | orderBy: 'horario'" class="x_panel tile-stats" href="#" role="button" class="btn btn-success">
+                          <td style="width: 100%; display: block; text-align: center;">
+                            <div><b>{{event.horario}}</b></div>
+                            <table style="width: 100%; display: block; text-align: center;">
+                              <tbody style="width: 100%; display: block; text-align: center;">
+                                <tr style="width: 100%; display: block; text-align: center;">
+                                  <td style="width: 100%; display: block; text-align: center;">
+                                    {{event.nome}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td name="sexta">
+                      <table>
+                        <tr ng-repeat="event in semana.sexta | orderBy: 'horario'" class="x_panel tile-stats" href="#" role="button" class="btn btn-success">
+                          <td style="width: 100%; display: block; text-align: center;">
+                            <div><b>{{event.horario}}</b></div>
+                            <table style="width: 100%; display: block; text-align: center;">
+                              <tbody style="width: 100%; display: block; text-align: center;">
+                                <tr style="width: 100%; display: block; text-align: center;">
+                                  <td style="width: 100%; display: block; text-align: center;">
+                                    {{event.nome}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td name="sabado">
+                      <table>
+                        <tr ng-repeat="event in semana.sabado | orderBy: 'horario'" class="x_panel tile-stats" href="#" role="button" class="btn btn-success">
+                          <td style="width: 100%; display: block; text-align: center;">
+                            <div><b>{{event.horario}}</b></div>
+                            <table style="width: 100%; display: block; text-align: center;">
+                              <tbody style="width: 100%; display: block; text-align: center;">
+                                <tr style="width: 100%; display: block; text-align: center;">
+                                  <td style="width: 100%; display: block; text-align: center;">
+                                    {{event.nome}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td name="domingo">
+                      <table>
+                        <tr ng-repeat="event in semana.domingo | orderBy: 'horario'" class="x_panel tile-stats" href="#" role="button" class="btn btn-success">
+                          <td style="width: 100%; display: block; text-align: center;">
+                            <div><b>{{event.horario}}</b></div>
+                            <table style="width: 100%; display: block; text-align: center;">
+                              <tbody style="width: 100%; display: block; text-align: center;">
+                                <tr style="width: 100%; display: block; text-align: center;">
+                                  <td style="width: 100%; display: block; text-align: center;">
+                                    {{event.nome}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
