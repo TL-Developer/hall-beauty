@@ -1,23 +1,23 @@
 'use strict';
 
 
-var user = [
-  {
-    nome: 'Laion',
-    estabelecimento: 'Lion Cabeleleiros',
-    semanas: [
-      {
-        segunda: [],
-        terca: [],
-        quarta: [],
-        quinta: [],
-        sexta: [],
-        sabado: [],
-        domingo: []
-      }
-    ]
-  }
-];
+// var user = [
+//   {
+//     nome: 'Laion',
+//     estabelecimento: 'Lion Cabeleleiros',
+//     semanas: [
+//       {
+//         segunda: [],
+//         terca: [],
+//         quarta: [],
+//         quinta: [],
+//         sexta: [],
+//         sabado: [],
+//         domingo: []
+//       }
+//     ]
+//   }
+// ];
 
 
 module.exports = function(app){
@@ -25,21 +25,21 @@ module.exports = function(app){
     , Users = app.models.users;
 
   // CADASTRANDO ÚNICO USUARIO
-  (function cadastrando_user(){
-    Users.findOne({nome: 'Laion'}).exec().then(function(data){
-      console.log(data)
-      if(data == null){
+  // (function cadastrando_user(){
+  //   Users.findOne({nome: 'Laion'}).exec().then(function(data){
 
-        // CRIANDO ÚNICO USUARIO
-        Users.create(user[0]).then(function(data){
-          console.log(data);
-        }, function(err){
-          console.log(err);
-        });
+  //     if(data == null){
 
-      }
-    });
-  })();
+  //       // CRIANDO ÚNICO USUARIO
+  //       Users.create(user[0]).then(function(data){
+  //         console.log(data);
+  //       }, function(err){
+  //         console.log(err);
+  //       });
+
+  //     }
+  //   });
+  // })();
 
 
   app.route(API+'/users')
