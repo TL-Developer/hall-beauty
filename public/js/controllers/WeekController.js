@@ -28,14 +28,15 @@ angular.module('hallbeauty').controller('WeekController', ['$scope','ServiceApi'
     dados.user = $stateParams.user;
     dados.week = $stateParams.week;
 
+    console.log($stateParams);
+
     $http.post('api/v1/users/'+$stateParams.user+'/weeks/'+$stateParams.week, dados).then(function(data){
       $scope.mensagem.texto = 'Cadastrado com sucesso!';
+      window.location.href = '/#/'+$stateParams.user+'/weeks';
     }, function(err){
       console.log(err);
       $scope.mensagem.texto = 'Não foi possível cadastrar :(';
     });
-
-    window.location.href = '/#/'+$stateParams.user+'/weeks';
 
   };
 
