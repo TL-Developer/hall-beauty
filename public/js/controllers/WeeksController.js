@@ -10,6 +10,7 @@ angular.module('hallbeauty').controller('WeeksControllers', ['$scope','ServiceAp
     }
   ];
 
+  console.log($scope.datas)
 
   $scope.selectSemana = function(semana){
     ServiceApi.getWeeks($scope.user).query(function(semanas){
