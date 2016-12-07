@@ -30,13 +30,13 @@
     <div class="input-field col s9">
       <select ng-model="diaSelected" ng-change="selectDia(diaSelected)">
         <option value="" disabled selected>-- SELECIONE O DIA --</option>
-        <option value="segunda">Segunda - [{{semana['segunda'].length}} agendado]</option>
-        <option value="terca">Terça - [{{semana['terca'].length}} agendado]</option>
-        <option value="quarta">Quarta - [{{semana['quarta'].length}} agendado]</option>
-        <option value="quinta">Quinta - [{{semana['quinta'].length}} agendado]</option>
-        <option value="sexta">Sexta - [{{semana['sexta'].length}} agendado]</option>
-        <option value="sabado">Sábado - [{{semana['sabado'].length}} agendado]</option>
-        <option value="domingo">Domingo - [{{semana['domingo'].length}} agendado]</option>
+        <option value="segunda">Segunda({{datas[semanaSelected].dias[0]}}) - [{{semana['segunda'].length}} agendado]</option>
+        <option value="terca">Terça({{datas[semanaSelected].dias[1]}}) - [{{semana['terca'].length}} agendado]</option>
+        <option value="quarta">Quarta({{datas[semanaSelected].dias[2]}}) - [{{semana['quarta'].length}} agendado]</option>
+        <option value="quinta">Quinta({{datas[semanaSelected].dias[3]}}) - [{{semana['quinta'].length}} agendado]</option>
+        <option value="sexta">Sexta({{datas[semanaSelected].dias[4]}}) - [{{semana['sexta'].length}} agendado]</option>
+        <option value="sabado">Sábado({{datas[semanaSelected].dias[5]}}) - [{{semana['sabado'].length}} agendado]</option>
+        <option value="domingo">Domingo({{datas[semanaSelected].dias[6]}}) - [{{semana['domingo'].length}} agendado]</option>
       </select>
     </div>
   </div>
