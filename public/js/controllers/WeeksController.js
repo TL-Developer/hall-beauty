@@ -4,6 +4,11 @@ angular.module('hallbeauty').controller('WeeksControllers', ['$scope','ServiceAp
   $scope.user = $stateParams.user;
   $scope.semanaSelected = 0;
   $scope.diaSelected;
+  $scope.datas = [
+    {
+      'dias': ['12-12','13-12','14-12','15-12','16-12','17-12','18-12']
+    }
+  ];
 
 
   $scope.selectSemana = function(semana){

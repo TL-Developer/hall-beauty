@@ -34,7 +34,7 @@
     <div class="input-field col s9">
       <select ng-model="diaSelected" ng-change="selectDia(diaSelected)">
         <option value="" disabled selected>-- SELECIONE O DIA --</option>
-        <option value="segunda">Segunda - [{{semana['segunda'].length}} agendado]</option>
+        <option value="segunda">Segunda({{datas[semanaSelected][dias][0]}}) - [{{semana['segunda'].length}} agendado]</option>
         <option value="terca">Terça - [{{semana['terca'].length}} agendado]</option>
         <option value="quarta">Quarta - [{{semana['quarta'].length}} agendado]</option>
         <option value="quinta">Quinta - [{{semana['quinta'].length}} agendado]</option>
